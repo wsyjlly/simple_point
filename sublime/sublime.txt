@@ -1,0 +1,287 @@
+1.右键支持用sublime2打开
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\*\shell\Sublime2]
+@="Sublime2(&S)"
+
+[HKEY_CLASSES_ROOT\*\shell\Sublime2\command]
+@="\"C:\\Program Files\\Sublime Text\\SublimeText.exe\" -p --remote-tab-silent \"%1\""
+
+把以下内容保存成一个sublime2.reg的注册表文件，双击打开即可!
+
+2.支持vim模式
+依次打开 选项->设置->默认，接着设置成以下即可:
+"ignored_packages": []
+
+3.安装vim增强插件VintageEx
+依次打开 选项->浏览安装包,把VintageEx解压放到它下面即可，必须安装它，否则你的sublime只支持vim中的简单的模式并不支持末行模式
+
+4.安装svn同步开发环境插件Tortoise
+依次打开 选项->浏览安装包,把Toroise解压放到它下面即可,依次 选项->软件包设置->tortoise->key bindings - default中设置:
+{ "keys": ["ctrl+alt+z"], "command": "tortoise_commit" },
+所以我的快捷键是ctrl+alt+z即可向svn服务器提交更新
+
+5.支持php和python查看页面的所有函数,可以快速定位函数，ctrl+r即可，或者按ctrl+shift+p后再输入@即可，并且还可以有来查看html中的id的缩略地图
+
+6.支持c和python编译，你只需要按ctrl+b即可，当然前提要把c:\python27加入到系统的环境变量中
+
+7.关闭前面的行号方法
+依次打开 选项->设置->默认，接着设置成以下即可:
+"line_numbers": false,
+
+8. 关闭自动补全单双引号以及圆括号和大括号
+"auto_match_enabled": false,
+
+9.出现明显的当前操作行的背景线方法
+"highlight_line": true,
+
+10.修改默认编码方法
+"default_encoding": "UTF-8",
+
+11.转换当前文件字符集方法
+依次 文件->gbk or utf-8
+
+12.关闭侧边栏方法
+依次 查看->侧边栏
+
+13.关闭迷你地图方法
+依次 查看->隐藏迷你地图
+
+14.搜索当前目录下的其他代码文件方法
+ctrl+shift+p
+
+15.设置字体方法
+"font_face": "",
+"font_size": 18,
+
+16.显示控制台方法
+查看显示控制台或ctrl+~即可，控制台中可以使用python命令，但比较简短
+
+17.排版缩进方法
+先全选中，然后按tab键进行右缩进,然后按shift+tab进行左缩进
+
+18.快速在切换一个()或{}代码段的开始和结尾方法
+按shift+5即可
+
+19.多鼠标操作方法
+按ctrl键，同时点击多个地方，即可一次性操作多个地方，非常方便
+
+20.快速注释和取消注释方法
+用鼠标选中后，按ctrl+/或ctrl+shift+/，再按即可取消
+
+21.sublime命令补全插件emmet,它会自动把snippet插件停止或开启,这是以前zen coding的升级版本，它主要是针对html这些前面代码的，它可以完全使用css选择器功能，以下是它支持的选择器命令:
+E
+元素名称(div, p);
+E#id
+使用id的元素(div#content, p#intro, span#error);
+E.class
+使用类的元素(div.header, p.error.critial). 你也可以联合使用class和idID: div#content.column.width;
+E>N
+子代元素(div>p, div#footer>p>span);
+E+N
+兄弟元素(h1+p, div#header+div#content+div#footer);
+E*N
+元素倍增(ul#nav>li*5>a);
+E$*N
+条目编号 (ul#nav>li.item-$*5);
+
+如:div.vsa>ul#nav>li.item$*5>a{Item $}可以生成如下代码:
+<div class="vsa">
+<ul id="nav">
+<li class="item1"><a href="">Item 1</a></li>
+<li class="item2"><a href="">Item 2</a></li>
+<li class="item3"><a href="">Item 3</a></li>
+<li class="item4"><a href="">Item 4</a></li>
+<li class="item5"><a href="">Item 5</a></li>
+</ul>
+</div>
+
+22.右侧缩略图区块加边框
+"draw_minimap_border": true,
+
+23.快速查看页面中的类和函数
+ctrl+r
+
+24.快速查看页面中的关键字
+ctrl+;
+
+25.设置左侧树结构
+ctrl+alt+k
+//选项->默认绑定:
+{ "keys": ["ctrl+alt+k"], "command": "toggle_side_bar" },
+
+26.在sublime中查看python类和函数:
+Ctrl+r
+
+27.在sublime中查看python关键字:
+Ctrl+;
+
+28.sublimeREPL插件非常的有用对学python来说，这样可以在工具->sublimeREPL->python->有几个非常有用的工具
+1)python
+2)python run current file
+
+29.设置字体要在选项->设置->默认:
+"font_size": 16.0
+
+30.设置vi打开模式为命令，选项->设置->默认:
+"vintage_start_in_command_mode": true
+
+31.如何禁止自动更新
+Preferences -> Settings-User
+"update_check": false,　
+保存即可。
+
+32.如何去掉行尾空格？
+点击菜单栏上的“Preferences->Setting-Default”，搜索“trim_trailing_white_space_on_save” 然后将false改为true，将在保存的时候去除行尾的空格。
+
+33.sublime如何显示空格和换行
+首选项->默认下把"draw_white_space": "all"即可.
+
+34.打开当前编辑的文件目录
+ctrl+o
+
+35.直接到达匹配的括号
+ctrl+m
+
+36.如何在sublime中直接执行php
+打开插件目录中的User，建一个文件php.sublime-build，内容为:
+{
+"cmd": ["php", "$file"],
+"file_regex": "php$",
+"selector": "source.php"
+}
+保存后，在任何地方都可以建php文件，并且通过在ctrl+b即可执行
+
+37.如何取消因为删除插件而导致的提示性错误:
+插件目录->user->Package Control.sublime-settings中进行删除即可
+
+38.如何按f12调出浏览器:
+首选项->程序包->sidebar->默认设置中最后更改为firefox即可
+
+
+注册码：
+---------------------
+----- BEGIN LICENSE -----
+sgbteam
+Single User License
+EA7E-1153259
+8891CBB9 F1513E4F 1A3405C1 A865D53F
+115F202E 7B91AB2D 0D2A40ED 352B269B
+76E84F0B CD69BFC7 59F2DFEF E267328F
+215652A3 E88F9D8F 4C38E3BA 5B2DAAE4
+969624E7 DC9CD4D5 717FB40C 1B9738CF
+20B3C4F1 E917B5B3 87C38D9C ACCE7DD8
+5F7EF854 86B9743C FADC04AA FB0DA5C0
+F913BE58 42FEA319 F954EFDD AE881E0B
+------ END LICENSE ------
+
+
+加入到hosts文件
+127.0.0.1       www.sublimetext.com
+127.0.0.1       license.sublimehq.com
+
+
+
+
+
+
+安装package control：
+https://packagecontrol.io/installation
+View->Show Console
+视图->显示控制台
+快捷键ctrl+~
+------------------------------
+import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)
+---------------------------------
+验证：
+preferences->Package Settings和package control
+
+安装汉化字体
+ctrl+shift+p->install package->localizetion
+
+安装配色方案
+ctrl+shift+p->install package->Theme - Spacegray 
+
+安装CJK		使sublime将CJK编码模式转换为utf8的编码模式显示  
+ctrl+shift+p->install package->ConvertToUTF8
+ctrl+shift+p->install package->GBK Support
+
+-----------------------------------------------------------------------------------
+CJK编码模式：  		例如GB2312, GBK, BIG5, EUC-KR, EUC-JP等
+中日韩统一表意文字（CJK Unified Ideographs），目的是要把分别来自中文、日文、韩文、越文中，本质、意义相同、形状一样或稍异的表意文字（主要为汉字，但也有仿汉字如日本国字、韩国独有汉字、越南的喃字）于ISO 10646及Unicode标准内赋予相同编码。CJK 是中文（Chinese）、日文（Japanese）、韩文（Korean）三国文字的缩写。顾名思义，它能够支持这三种文字。实际上，CJK 能够支持在 LaTeX 中使用包括中文、日文、韩文在内的多种亚洲双字节文字。
+--------------------------------------------------------------------------
+
+
+vi输入的设置：
+1.安装包VintageEx移入packages 
+ctrl+shift+p->install package->VintageEx
+2.首选项->设置->
+------------------
+"ignored_packages":
+[
+
+],
+------------------
+
+html快捷输入插件
+安装包Emmet移入packages 
+或安装Emmet
+ctrl+shift+p->install package->Emmet
+
+sublime用户设置：
+---------------------------------------------------------------------------------------
+	"auto_complete": true,
+	"auto_match_enabled": true,
+	"default_encoding": "UTF-8",
+	"font_face": "微软雅黑",
+	"font_size": 12,
+	"gutter": true,
+	"highlight_line": true,
+	"ignored_packages":[],
+	"line_numbers": true,
+	"line_padding_top": 4,
+	"line_padding_bottom": 4,
+	"update_check": false,
+	"color_scheme": "Packages/Color Scheme - Default/Mariana.sublime-color-scheme",
+	"theme": "Adaptive.sublime-theme"
+--------------------------------------------------------------------------------------
+安装c语言编译环境
+1、首先，我们要有一个编译器，如果你已经有了CodeBlocks或者Dev-C++，那么直接看下一步就好了。如果没有的话，我们需要先下载一个编译器，例如MinGW
+2、下载配置环境变量
+C:\Program Files (x86)\Dev-Cpp\MinGW64\bin
+3.配置好环境变量后，测试是否配置成功，按Win+R打开运行，输入cmd，然后输入g++，如果出现信息就说明配置好了
+g++: fatal error: no input files
+compilation terminated.
+
+4、接下来我们配置sublime，打开sublime，点击Tools→Build System→New Build System，接下来把里面的东西都删掉~粘贴以下代码
+
+{
+"cmd": ["g++","-Wall", "${file}", "-o", "${file_path}/${file_base_name}"],
+"file_regex": "^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$",
+"working_dir": "${file_path}",
+"selector": "source.c, source.c++",
+"encoding":"cp936",
+"variants":
+[
+{
+"name": "Run",
+"cmd": ["cmd", "/c", "g++", "-Wall","${file}", "-o", "${file_path}/${file_base_name}", "&&", "cmd", "/c", "${file_path}/${file_base_name}"]
+},
+{
+"name": "RunInCommand",
+"cmd": ["cmd", "/c", "g++", "-Wall","${file}", "-o", "${file_path}/${file_base_name}", "&&", "start", "cmd", "/c", "${file_path}/${file_base_name} & echo.&pause"]
+}
+]
+}
+保存文件命名如：  c编译系统.sublime-build
+
+5、保存后，我们来选择一下~ 点击Tools→Build System→找到刚才自己新建的，比如我起的名字是aaa，选择aaa。我们就已经配置完毕了~敲代码试试吧，比如我们写一个HelloWorld代码，点击Tools→Build With，选择aaa-RunInCommand，就可以运行啦~需要注意的是，敲完代码一定要先保存才能运行哦~敲完记得先Ctrl+S保存一下。如果代码没有错误，就会弹出熟悉的控制台窗口~如果代码有错误的话，控制台是不弹出的哦
+======================
+代码格式化：
+这个功能被SublimeText命名为reindent，如果你使用了SublimeText汉化包的话叫做“再次缩进”，但是这种叫法说不通。
+该选项的路径：Edit - Line - Reindent（中文路径则是：编辑 - 行 - 再次缩进）
+添加代码格式化快捷键
+1、首先通过以下路径打开用户按键绑定文件：
+Preferences → Key Bindings – User
+2、然后在其中添加以下代码（如果你有需要的话，其中的快捷键组合是可以自己定义的）：
+{"keys": ["ctrl+shift+r"], "command": "reindent" , "args":{"single_line": false}}
