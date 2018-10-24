@@ -38,7 +38,7 @@ public class AddressLocation {
 			
 			int pagenum = address/pagesize;
 			int deviation = address%pagesize;
-			if(pagenum>page){
+			if(pagenum>=page){
 				System.out.println("本次访问的地址已超出进程的地址空间，系统将产生越界中断！");continue;
 			}else{
 				int add = pagetable[pagenum]*pagesize+deviation;
