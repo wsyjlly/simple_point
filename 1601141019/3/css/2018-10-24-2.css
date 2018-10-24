@@ -1,0 +1,30 @@
+/* CSS Document */
+
+h1{
+	color:#069;
+	text-shadow:1px 1px 1px #FF0000;
+}
+h2{
+	font-size:20px;
+	color:#069;
+	text-decoration:underline;
+}
+.one{
+	font-size:12px;
+	border:1px dotted #FF6600;
+}
+.two{
+	text-indent:2em;
+}
+.three{
+	text-indent:2em;
+}
+em{
+	font-style:normal;
+}
+.blue{
+	color:#06C;
+}
+#num{
+	color:#F00;
+}

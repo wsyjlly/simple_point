@@ -1,0 +1,30 @@
+/* CSS Document */
+body{
+	font-size:100px;
+}
+@font-face{
+	font-family:jianzhi;
+	src:url(../font/FZJZJW.TTF);
+}
+.c1{
+	color:#39F;
+	text-transform:capitalize;
+}
+.c2{
+	color:#F00;
+}
+.c3{
+	color:#FF0;
+}
+.c4{
+	color:#3C0;
+}
+p#d1{
+	text-decoration:underline;
+}
+p#d2{
+	font-family:jianzhi;
+	text-align:center;
+	font-size:60px;
+}
+	

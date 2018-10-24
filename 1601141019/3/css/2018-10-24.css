@@ -1,0 +1,51 @@
+/* CSS Document */
+
+.one{
+	font-size:50px;
+	letter-spacing:0;
+	
+}
+.two{
+	font-size:36px;
+	
+}
+.three{
+	font-size:36px;
+}
+.four{
+	width:500px;
+	height:100px;
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+}
+.a{
+}
+.b{
+}
+.one .a{
+	color:#666;
+}
+.one .b{
+	color:#396;
+}
+.two .a{
+	color:#666;
+	font-style: italic;
+}
+.two .b{
+	color:#000;
+	font-size:50px;
+}
+h2 .a{
+	color:#666;
+	font-size:50px;
+	font-weight:900;
+}
+h2 .b{
+	color:#C39;
+	font-size:36px;
+}
+.three strong{
+	color:#C39;
+}
