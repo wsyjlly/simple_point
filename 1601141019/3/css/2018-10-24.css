@@ -1,12 +1,23 @@
 /* CSS Document */
-
+p{
+	font-family:"微软雅黑";
+	height:70px;
+	line-height:70px;
+	padding:0;
+	margin:0;
+}
 .one{
 	font-size:50px;
 	letter-spacing:0;
+	height:50px;
+	line-height:50px;
+	font-family:"Agency FB", "方正舒体";
 	
 }
 .two{
-	font-size:36px;
+	font-size:50px;
+	padding:0;
+	margin:0;
 	
 }
 .three{
@@ -14,14 +25,16 @@
 }
 .four{
 	width:500px;
-	height:100px;
+	height:30px;
+	line-height:30px;
 	white-space:nowrap;
 	overflow:hidden;
 	text-overflow:ellipsis;
 }
-.a{
-}
-.b{
+.five{
+	font-size:50px;
+	height:50px;
+	line-height:50px;
 }
 .one .a{
 	color:#666;
@@ -30,6 +43,7 @@
 	color:#396;
 }
 .two .a{
+	font-size:36px;
 	color:#666;
 	font-style: italic;
 }
@@ -37,12 +51,13 @@
 	color:#000;
 	font-size:50px;
 }
-h2 .a{
+.five .a{
 	color:#666;
+	height:50px;
+	line-height:50px;
 	font-size:50px;
-	font-weight:900;
 }
-h2 .b{
+.five .b{
 	color:#C39;
 	font-size:36px;
 }
